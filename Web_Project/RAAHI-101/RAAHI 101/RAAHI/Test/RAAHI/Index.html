@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    /* Fonts Family */
+    /* font-family: 'Poppins', sans-serif; */
+
+    /* variables */
+
+    :root {
+      /* color palate */
+      --primary-color: #7b61ff;
+      --secondary-color: #f6f4ff;
+      --footer-color: #f9f9f9;
+
+      /* font size & weight */
+      --title-font-size: 3.2rem;
+      --small-font-size: 1.3rem;
+      --h2-font-weight: 600;
+
+      /* card-gap */
+      --card--gap: 3.2rem;
+
+      --conatiner--size: 73%;
+    }
+
+    /* variable Class */
+    .section-title {
+      font-size: var(--title-font-size);
+      margin-bottom: 6.4rem;
+      font-weight: 700;
+      margin-top: 12rem;
+    }
+
+    .container {
+      max-width: 1378px;
+      margin: auto;
+    }
+
+    .section-button {
+      font-size: 1.6rem;
+      margin-top: 4.5rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      gap: 4px;
+      width: 105px;
+      height: 44px;
+      background: #f6f4ff;
+      border-radius: 12px;
+      cursor: pointer;
+      /* margin-left: -6rem; */
+    }
+
+    /* reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 10px;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 3.2rem;
+      overflow-x: hidden;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: red;
+    }
+
+    img {
+      object-fit: cover;
+    }
+
+    /* main */
+
+    .main {
+      background: url("Imgs/earth2.jpg") no-repeat center center/cover;
+      min-height: 800px;
+      border-radius: 0 0 50px 50px;
+      background-image: url(Imgs/earth2.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* headEr */
+    .header {
+      color: #ffffff;
+      max-width: var(--conatiner--size);
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      justify-content: center;
+      align-items: center;
+      padding-top: 4.8rem;
+      margin-bottom: 160px;
+    }
+
+    /* NAVIGATIONS */
+    .navlists {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.4rem;
+      font-weight: 300;
+    }
+
+    .navlists a {
+      opacity: 0.7;
+    }
+
+    .navlists a:hover {
+      opacity: 1;
+    }
+
+
+    /* showcase CONTENT */
+    .showcase-content {
+      text-align: center;
+      color: white;
+      font-size: 25px;
+    }
+
+    .showcase-content h1 {
+      margin-bottom: 42px;
+    }
+
+    .showcase-content a {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-top: 32px;
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      background: var(--primary-color);
+      padding: 1.8rem 2.4rem;
+      border-radius: 1.2rem;
+    }
+
+    .showcase-content a:hover {
+      background: var(--primary-color);
+      opacity: 0.9;
+    }
+
+    .showcase-search {
+      width: 60%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      background-color: black;
+      justify-content: space-between;
+      padding: 1.5rem 2rem;
+      padding-right: 1rem;
+      border-radius: 12px;
+      margin-top: 184px;
+    }
+
+    .filters {
+      display: flex;
+      /* justify-content: space-between; */
+      align-items: center;
+      flex-shrink: 10px;
+      flex: 10;
+      gap: 10rem;
+    }
+
+    .filter {
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+      line-height: 1.6;
+      gap: 1.5rem;
+      border-right: 1px solid rgba(194, 193, 193, 0.1);
+      padding-right: 1.5rem;
+    }
+
+    .filter h4 {
+      color: #5b5b5b;
+      font-weight: 300;
+    }
+
+    .filter h2 {
+      font-weight: 500;
+    }
+
+    .search-button-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--primary-color);
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+
+    .search-button-icon:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+
+    /* destination */
+    .destinations-cards {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.6rem;
+
+
+    }
+
+    .destination-card h5 {
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    .destination-card h6 {
+      font-weight: 400;
+      font-size: 1.3rem;
+      line-height: 19.5px;
+    }
+
+    .destination-card img {
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* HOTELS */
+    .hotel-restaurants {
+      transition: 3s;
+    }
+
+    .title-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hotel-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      justify-content: space-between;
+      align-items: center;
+      gap: 3rem;
+      transition: 0.3s;
+    }
+
+    .hotel-cards {
+      position: relative;
+      border-radius: 12px;
+    }
+
+    .hotel-cards img {
+      border-radius: 12px;
+    }
+
+    .hotel-cards h5 {
+      font-weight: 500;
+      font-size: 1.6rem;
+    }
+
+    .hotel-cards h6 {
+      font-weight: 400;
+      font-size: 1.3rem;
+      line-height: 19.5px;
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .ratings {
+      position: absolute;
+      bottom: 1px;
+      right: 0;
+    }
+
+    .off {
+      display: none;
+    }
+
+    .on {
+      display: block;
+    }
+
+    /* tour/travel */
+    .tours-cards h3 {
+      font-size: 2rem;
+    }
+
+    .tours-cards {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .tours-card {
+      display: flex;
+      gap: 3rem;
+      flex: 1;
+    }
+
+    .tours-card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 1.6rem;
+    }
+
+    .tours-card-content-icons {
+      display: flex;
+      gap: 3rem;
+      margin-top: 6rem;
+    }
+
+    .tours-card-content-icons h6 {
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 12px;
+      color: #878787;
+    }
+
+    .tours-card-contents-text p {
+      margin-top: 2rem;
+    }
+
+    .tours-card img {
+      border-radius: 12px;
+    }
+
+    /* activities */
+
+    .activities-cards {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .activities-cards img {
+      border-radius: 12px;
+    }
+
+    .activities-cards h4 {
+      font-size: 1.6rem;
+    }
+
+    /* about */
+
+    #About {
+      display: flex;
+      justify-content: center;
+      margin-top: 120px;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    #About h2 {
+      font-size: var(--title-font-size);
+    }
+
+    #About p {
+      width: 556px;
+      font-size: 1.6rem;
+      margin-top: 3rem;
+    }
+
+    #About .section-button {
+      width: 130px;
+    }
+
+
+    /* footer */
+    footer {
+      background: var(--footer-color);
+      padding-top: 120px;
+      padding-bottom: 120px;
+      margin-top: 120px;
+    }
+
+    .footer-sections {
+      display: grid;
+      grid-template-columns: 3fr 1fr 1fr 1fr 3fr;
+      /* align-items: center;  */
+      justify-content: space-between;
+    }
+
+    .footer-sections ul {
+      margin-top: 2rem;
+    }
+
+    .footer-section p {
+      font-size: 1.3rem;
+      width: 354px;
+      line-height: 1.9;
+      margin-block: 1rem 2rem;
+      color: #5b5b5b;
+    }
+
+    .footer-section a {
+      color: #5b5b5b;
+      font-size: 1.3rem;
+    }
+
+    .footer-section h3 {
+      font-size: 1.8rem;
+    }
+
+    .footer-social-icons {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .footer-section:last-child {
+      margin-left: auto;
+      margin-right: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-section:last-child form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .footer-section:last-child label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.2;
+      background-color: #fff;
+      color: #5b5b5b;
+      padding-left: 5px;
+    }
+
+    .footer-section:last-child input {
+      border: none;
+      outline: none;
+      margin-top: 0.5rem;
+      font-size: 1.6rem;
+      color: black;
+      background-color: white;
+    }
+
+    .footer-section:last-child img {
+      margin-right: 1rem;
+    }
+
+    .form-section {
+      display: flex;
+      justify-content: center;
+      line-height: 1.2;
+      background-color: #fff;
+      align-items: center;
+      font-size: 1.4rem;
+      padding: 1rem 2rem;
+      padding-right: 3rem;
+      border-radius: 12px;
+    }
+
+    .footer-section:last-child button {
+      outline: none;
+      border: none;
+      background-color: var(--primary-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 2rem;
+      padding: 2rem;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .footer-section:last-child button img {
+      margin-right: 0;
+    }
+
+    /* scrollbar */
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #242323;
+      /* display: none; */
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 100px;
+      border: 0.5px solid#242323;
+      width: 5px;
+
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* */
+    .toggleOn {
+      display: none;
+    }
+
+    .toggleClose {
+      display: none;
+    }
+  </style>
+
+  <!-- Css Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" media=" screen and (max-width:768px)" href="/css/mobile.css" />
+  <!-- unicons -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+
+  <!-- favicon -->
+  <link rel="icon" href="/Imgs/icons/Vector.png" />
+
+  <!-- script tag -->
+  <script defer src="./JS/script.js"></script>
+
+  <!-- ScrollReveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="./JS/script.js"></script>
+
+  <!-- swiper js -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <!-- <link rel="stylesheet" href="/2rism/css/style.css"> -->
+
+  <!-- Title -->
+  <title>RAAHI</title>
+</head>
+
+<body>
+  <!-- Showcase -->
+  <main class="main" id="home">
+    <!-- Header -->
+    <header class="header background_section">
+      <!-- logo -->
+      <div class="logo">
+        <img src="Imgs/logoo.jpg" alt="RAAHI" height="50" width="120" />
+      </div>
+
+
+      <!-- navbar -->
+      <nav class="navbar">
+        <ul class="navlists">
+          <li class="navlist"><a href="#home">Home</a></li>
+          <li class="navlist"><a href="#restaurants">Hotels</a></li>
+          <li class="navlist"><a href="#restaurants">Restaurants</a></li>
+          <li class="navlist"><a href="#tours">Tours</a></li>
+          <li class="navlist"><a href="#destinations">Destinations</a></li>
+          <li class="navlist"><a href="#activities">Activities</a></li>
+          <li class="navlist"><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- user || navigator -->
+      <div class="user-profile">
+        <div class="profile-name">
+          <h2>
+            <span class="hello"> Hello, </span>
+            <span class="indiviual-name"> User </span>
+          </h2>
+        </div>
+      </div>
+    </header>
+
+    <!-- showcase-content -->
+    <div class="showcase-content background_section">
+      <h1>Discover the most engaging places</h1>
+      <img src="Imgs/earth2.jpg"/>
+      <a href="https://earth.google.com/web/" target="_blank" class="showcase-button">
+        Discover on 3D globe</a>
+    </div>
+
+
+  </main>
+  <!-- popular Destinations -->
+  <section class="destinations" id="destinations">
+    <div class="container">
+      <!-- title -->
+      <h2 class="section-title">Popular Destinations</h2>
+      <!-- cards -->
+
+      <div class="swiper swiper1">
+        <div class="destinations-cards swiper-wrapper">
+          <!-- card 1 -->
+          <!-- <div class="destination-card swiper-slide">
+            <img src="swit.jpg" alt="" width="203" height="181" />
+            <h5><a href="switzerland.html">Switzerland</a></h5>
+
+          </div> -->
+
+          <div class="destination-card">
+            <img src="./Imgs/swit.jpg" alt="" width="203" height="181" />
+            <h5><a href="switzerland.html">Switzerland</a></h5>
+
+          </div>
+
+          <div class="destination-card">
+            <img src="./Imgs/kashmir.jpg" alt="" width="203" height="181" />
+            <h5><a href="kash.html">Kashmir</a></h5>
+
+          </div>
+
+
+
+
+          <!-- <div class="destination-card swiper-slide">
+            <img src="kashmir.jpg" alt="" width="203" height="181" />
+            <h5><a href="kash.html">Kashmir</a></h5>
+
+          </div> -->
+          <!-- card 2 -->
+
+          <div class="destination-card">
+            <img src="Imgs/mal.jpg" alt="" width="203" height="181" />
+            <h5><a href="maldives.html">Maldives</a></h5>
+          </div>
+
+
+          <!-- card 3 -->
+          <div class="destination-card">
+            <img src="Imgs/france.jpg" alt="" width="203" height="181" />
+            <h5 style="color:#242323;"><a href="itenary/paris.html">France</a></h5>
+
+          </div>
+          <!-- card 4 -->
+          <!-- card 5 -->
+          <div class="destination-card">
+            <img src="Imgs/rajasthan.jpg" alt="" width="203" height="181" />
+            <h5 style="color:#242323;"><a href="itenary/rajasthan.html">Rajasthan</a></h5>
+
+          </div>
+          <!-- card 6 -->
+          <div class="destination-card">
+            <img src="Imgs/assam.jpg" alt="" width="203" height="181" />
+            <h5 style="color:#242323;"><a href="itenary/assam.html">Assam</a></h5>
+
+          </div>
+          <!-- card 7 -->
+          <div class="destination-card">
+            <img src="kerala.jpg" alt="" width="203" height="181" />
+            <h5 style="color:#242323;">Kerala</h5>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hotels  -->
+  <section class="hotel" id="restaurants">
+    <div class="container">
+      <div class="title-container">
+        <h2 class="section-title"> Hotels</h2>
+        <div class="section-button hotel-button">view all <img src="/Imgs/icons/bleft.png" alt=""></div>
+      </div>
+      <!-- cards -->
+      <div class="hotel-card">
+
+        <!-- card 1 -->
+        <div class="hotel-cards">
+          <img src="Imgs/rbp.jpg" alt="" width="320" height="380">
+          <h5>Rambhag Palace</h5>
+          <h6><img src="/Imgs/icons/map-pin-line.png" alt=""> Jaipur,Rajasthan</h6>
+          <div class="ratings"> <img src="/Imgs/icons/rating=5.png" alt=""></div>
+        </div>
+        <!-- card 2 -->
+        <div class="hotel-cards">
+          <img src="Imgs/Grand hotel.jpg" alt="" width="320" height="380">
+          <h5>Grand-Hotel du Cap-Ferrat</h5>
+          <h6><img src="/Imgs/icons/map-pin-line.png" alt="">Paris,France</h6>
+          <div class="ratings"> <img src="/Imgs/icons/rating=4.png" alt=""></div>
+        </div>
+        <!-- card 3 -->
+        <div class="hotel-cards">
+          <img src="Imgs/khyber.jpg" alt="" width="320" height="380">
+          <h5>Khyber Himalayan Resort</h5>
+          <h6><img src="/Imgs/icons/map-pin-line.png" alt="">Kashmir,India</h6>
+          <div class="ratings"> <img src="/Imgs/icons/rating=2.png" alt=""></div>
+        </div>
+        <!-- card 4 -->
+        <div class="hotel-cards">
+          <img src="Imgs/ca.jpg" alt="" width="320" height="380">
+          <h5>The Cheddi Andermatt </h5>
+          <h6><img src="/Imgs/icons/map-pin-line.png" alt=""> Gotthardstrasse,Switzerland</h6>
+          <div class="ratings"> <img src="/Imgs/icons/rating=5.png" alt=""></div>
+        </div>
+        <!-- card 5 -->
+        <div class="hotel-cards off">
+          <img src="grand hyatt kochi.jpg" alt="" width="320" height="380">
+          <h5>Grand Hyatt</h5>
+          <h6><img src="/Imgs/icons/map-pin-line.png" alt="">Kochi,Kerala</h6>
+          <div class="ratings"> <img src="/Imgs/icons/rating=4.png" alt=""></div>
+        </div>
+        <!-- card 6 -->
+        <div class="hotel-cards off">
+          <img
+            src="https://images.unsplash.com/photo-1586495985096-787fb4a54ac0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+            alt="" width="320" height="380">
+          <h5>Dreams Watervilla</h5>
+          <h6><img src="/Imgs/icons/map-pin-line.png" alt=""> Meeru Island, Maldives</h6>
+          <div class="ratings"> <img src="/Imgs/icons/rating=5.png" alt=""></div>
+        </div>
+        <!-- card 7 -->
+        <div class="hotel-cards off">
+          <img src="ah.avif" alt="" width="320" height="380">
+          <h5>The Greewood Resort </h5>
+          <h6><img src="/Imgs/icons/map-pin-line.png" alt="">Guhawati,Assam</h6>
+          <div class="ratings"> <img src="/Imgs/icons/rating=3.png" alt=""></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Tours/Travel -->
+  <section id="tours">
+    <div class="container">
+      <div class="title-container">
+        <h2 class="section-title"> Travel Tips and Advice</h2>
+        <div class="section-button hotel-button">view all <img src="/Imgs/icons/bleft.png" alt=""></div>
+      </div>
+      <div class="tours-cards">
+
+        <div class="tours-card">
+          <div class="tour-img">
+            <img
+              src="Imgs/rantham 2.jpg"
+              alt="" width="320" height="380">
+          </div>
+          <div class="tours-card-content">
+            <div class="tours-card-contents-text">
+              <h3>Wildlife Safari in Ranthambore</h3>
+              <p>For wildlife enthusiasts, a safari in Ranthambore National Park is a must. Spot the majestic 
+                Bengal tigers in their natural habitat and explore the ancient Ranthambore Fort. The park’s 
+                diverse flora and fauna make it a paradise for nature lovers.</p>
+            </div>
+            <div class="tours-card-content-icons">
+              <h6><img src="/Imgs/icons/calendersml.png" alt=""> Today</h6>
+              <h6><img src="/Imgs/icons/user.png" alt=""> Avenger Initiative</h6>
+              <h6><img src="/Imgs/icons/message.png" alt=""> 2</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="tours-card">
+          <div class="tour-img">
+            <img
+              src="Imgs/bordeuax.jpg"
+              alt="" width="320" height="380">
+          </div>
+          <div class="tours-card-content">
+            <div class="tours-card-contents-text">
+              <h3>Vineyards of Bordeaux</h3>
+              <p>Indulge in the world-renowned wines of Bordeaux by taking a tour of its 
+                picturesque vineyards and wineries. Learn about the wine-making process, 
+                sample exquisite wines, and explore the historic architecture of this elegant city. </p>
+            </div>
+            <div class="tours-card-content-icons">
+              <h6><img src="/Imgs/icons/calendersml.png" alt=""> Today</h6>
+              <h6><img src="/Imgs/icons/user.png" alt=""> Ager Pagla</h6>
+              <h6><img src="/Imgs/icons/message.png" alt="">12</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- activities -->
+  <section id="activities">
+    <div class="container">
+      <div class="title-container">
+        <h2 class="section-title"> Activities</h2>
+        <div class="section-button hotel-button">view all <img src="/Imgs/icons/bleft.png" alt=""></div>
+      </div>
+
+      <!-- Activities Cards -->
+      <div class="activities-cards">
+        <div class="activities-card">
+          <img src="Imgs/Floating Breakfast.jpg" alt="" width="320" height="380">
+          <h4>Floating Breakfast,Maldives</h4>
+        </div>
+        <div class="activities-card">
+          <img src="Imgs/Hot Air Balloon.jpg" alt="" width="320" height="380">
+          <h4>Hot Air Balloon,Rajasthan</h4>
+        </div>
+        <div class="activities-card">
+          <img
+            src="https://images.unsplash.com/photo-1565992441121-4367c2967103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80"
+            alt="" width="320" height="380">
+          <h4>Skiing,Switzerland</h4>
+        </div>
+        <div class="activities-card">
+          <img src="Imgs/Gandola.jpg" alt="" width="320" height="380">
+          <h4>Gandola Cable Car,Kashmir</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- about -->
+  <section id="About">
+    <div class="about-content">
+      <h2>About US</h2>
+      <p>
+        Welcome to RAAHI!
+
+        At RAAHI, we're passionate about exploring the world and helping others do the same. Our mission is to turn your
+        travel dreams into reality by offering personalized, unforgettable experiences that cater to your unique
+        interests and desires.RAAHI is a one stop travel guide that gives you personalized itineraries and helps you
+        plan your vacations in an efficient way. At RAAHI, we promise to make your journey as enjoyable and stress-free
+        as possible. Your satisfaction is our top priority, and we are here to handle all the details so you can focus
+        on creating memories that will last a lifetime.
+
+        Join us at RAAHI and embark on the journey of a lifetime. Your adventure awaits!
+
+        Contact us today to start planning your next getaway.
+      </p>
+
+      <div class="section-button hotel-button">Read More <img src="/Imgs/icons/bleft.png" alt=""></div>
+    </div>
+
+    <div class="about-img">
+      <img src="Test/RAAHI/WhatsApp Image 2024-03-28 at 22.24.30_8ff21af2.jpg" alt="" width="556" height="488">
+    </div>
+  </section>
+
+
+  <div class="toggleOn"><i class="uil uil-align-center-alt"></i></div>
+  <div class="toggleClose"><i class="uil uil-multiply"></i></div>
+</body>
+
+</html>
