@@ -13,7 +13,7 @@
   --footer-color: #f9f9f9;
 
   /* font size & weight */
-  --title-font-size: 3.2rem;++
+  --title-font-size: 3.2rem;
   --small-font-size: 1.3rem;
   --h2-font-weight: 600;
 
@@ -98,7 +98,7 @@ img {
 
 /* headEr */
 .header {
-  color: black;
+  color: white;
   max-width: var(--conatiner--size);
   margin: auto;
   display: grid;
@@ -123,11 +123,22 @@ img {
 }
 
 .navlists li a {
-  color: black;
+  color: white;
 }
 
 .navlists a:hover {
   opacity: 1;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar .navlist a{
+  margin-right: 20px;
 }
 
 /* USER/LOGIN */
@@ -163,12 +174,37 @@ img {
 
 /* showcase CONTENT */
 .showcase-content {
-  text-align: center;
+  /* text-align: center; */
   color: black;
   font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: calc(100vh - 120px);
 }
+
+.background_section {
+  /* background-image: url('Imgs/earth2.jpg'); */
+  background-image: url('../Imgs/earth2.jpg');
+  background-size: cover; /* Ensures the image covers the entire div */
+  background-position: center; /* Centers the image in the div */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  width: 100%; /* Ensures the div takes the full width of its container */
+  height: 100vh; /* Sets the height of the div to 100% of the viewport height */
+  position: relative; /* Ensures absolute positioned elements are contained within this div */
+  display: flex; /* Centers the content inside the div */
+  flex-direction: column; /* Ensures content stacks vertically */
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  color: white; /* Ensures text is readable against the background */
+}
+
+
 .showcase-content h1 {
   margin-bottom: 42px;
+  color: honeydew;
 }
 .showcase-content a {
   text-align: center;
